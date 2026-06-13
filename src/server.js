@@ -1,14 +1,30 @@
-const express=require("express");
-const app=express();
-const port=3000;
+// Load environment variables
+require("dotenv").config();
 
-// route
-app.get("/",(req,res)=>{
-    res.send("Hello from Express server");
-});
 
-// Server start
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+// Import express app
+const app = require("./app");
+
+
+// Import database connection
+require("./db/db");
+
+
+
+// Port configuration
+
+const PORT = process.env.PORT || 3000;
+
+
+
+// Start server
+
+app.listen(PORT,()=>{
+
+
+    console.log(
+        `🚀 Server running on port ${PORT}`
+    );
+
+
 });
- 
